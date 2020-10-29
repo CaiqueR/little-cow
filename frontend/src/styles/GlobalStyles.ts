@@ -6,7 +6,12 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
+  
   *, input, button {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
+
+  html {
+    font-size: 62.5%;
+}
 `;
