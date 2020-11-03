@@ -2,21 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Container } from "./styles";
+import logo from "../../assets/logofinal.png";
 
 const Header: React.FC = () => {
   return (
     <Container>
-      <div>Little Cow Logo</div>
+      <img src={logo} alt="Little Cow Logo" />
 
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link className="hover-effect" to="/">
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/explore">Explorar</Link>
+          <Link className="hover-effect" to="/explore">
+            Explorar
+          </Link>
         </li>
         <li>
-          <Link to="/pagines">Páginas</Link>
+          <Link className="hover-effect" to="/pagines">
+            Páginas
+          </Link>
         </li>
         <li>
           <Link to="/new-project">

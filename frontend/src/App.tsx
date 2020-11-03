@@ -7,7 +7,7 @@ import { GlobalStyles } from "./styles/GlobalStyles";
 
 const theme = {
   colors: {
-    main: "#6067f1",
+    main: "#0a9e39",
     secondary: "#383d92",
     white: "#fff",
     black: "#000",
