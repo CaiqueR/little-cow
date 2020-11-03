@@ -23,10 +23,6 @@ export const Page: React.FC = () => {
   );
 };
 
-export function Teste() {
-  return <div>teste</div>;
-}
-
 export function Teste2() {
   return <div>TE23</div>;
 }
