@@ -9,6 +9,38 @@ export const Container = styled.header`
   padding: 0 2rem;
   flex-wrap: wrap;
 
+  .hover-effect {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      background: ${(props) => props.theme.colors.main};
+      height: 4px;
+      -webkit-transition-property: right;
+      transition-property: right;
+      -webkit-transition-duration: 0.3s;
+      transition-duration: 0.3s;
+      -webkit-transition-timing-function: ease-out;
+      transition-timing-function: ease-out;
+    }
+
+    &:hover {
+      &::before {
+        right: 0;
+      }
+    }
+  }
   &::after {
     content: "";
     border-bottom: 0.1rem solid ${(props) => props.theme.colors.grey};
@@ -16,8 +48,8 @@ export const Container = styled.header`
     display: block;
   }
 
-  div {
-    font-size: 1.6rem;
+  img {
+    height: 8rem;
   }
 
   ul {
@@ -37,6 +69,10 @@ export const Container = styled.header`
 
       a {
         text-decoration: none;
+
+        &:visited {
+          color: black;
+        }
       }
 
       button {
