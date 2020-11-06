@@ -4,6 +4,7 @@ import Content from "../Content";
 import { useGeneral } from "../context/Provider";
 import Header from "../Header";
 import Login from "../Login";
+import Register from "../Register";
 import ProtectedRoute from "../routes/ProtectedRoute";
 
 import { Container } from "./style";
@@ -16,6 +17,7 @@ export const Page: React.FC = () => {
       <Switch>
         <Route exact path="/" component={Content} />
         <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
         <Route path="/explore" component={Teste2} />
         <ProtectedRoute path="/protect" component={Teste2} />
       </Switch>
@@ -24,5 +26,6 @@ export const Page: React.FC = () => {
 };
 
 export function Teste2() {
-  return <div>TE23</div>;
+  const { user } = useGeneral();
+  return <h1>{user.name}</h1>;
 }

@@ -6,11 +6,13 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    20deg,
-    rgba(1, 110, 35, 1) 20%,
-    rgba(10, 158, 57, 1) 62%
-  );
+  background-image: url("heroalternative3.svg"), url("heroalternative.svg"),
+    url("scene.svg");
+  background-size: 60rem, auto, 80rem;
+  background-repeat: no-repeat;
+  background-position: 120rem bottom, 5rem bottom, -25rem 0;
+
+  margin-top: -10vh;
 `;
 
 export const ContainerLogin = styled.div`
