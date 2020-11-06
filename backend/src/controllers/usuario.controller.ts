@@ -1,44 +1,28 @@
 /**
- * 
- * CRUD DE USUARIO
- * 
- * {
- *      nome: string,
- *      idade: number,
- *      email: string,
- *      foto: string,
- *      bitcows: number, // dinheiro virtual do usuario 
- *      cadastro: Date,
- * }
- * POST     /usuario
- * GET      /usuario/id
- * UPDATE   /usuario/id
- * DELETE   /usuario/id
- * 
- * ===============================================================================================================
- * 
- * CRUE DE VAQUINHA
- * 
- * {
- *      nome: string, 
- *      descricao: string,
- *      autor: Usuario
- *      meta: number,    // quantos bitcows ela deve alcançar 
- *      bitcows: number, // dinheiro virtual depositado na vaquinha
- *      criacao: Date,
- *      encerramento: Date,
- *      encerrada: boolean,
- *      contribuidores: [Usuario],
- * }
- * POST     /vaquinha
- * GET      /vaquinha/id
- * UPDATE   /vaquinha/id
- * DELETE   /vaquinha/id
- *  
- * 
- * 
- * 
- * 
+  CRUD DE USUARIO
+  
+  POST     /usuario
+  GET      /usuario/id
+  UPDATE   /usuario/id
+  DELETE   /usuario/id
+  
  */
 
 
+import express from 'express';
+import {getAll, inserir} from '../models/usuario.model';
+
+const router = express.Router();
+
+router.get('/', (req, res)=>{
+    res.status(200).json(getAll());
+});
+
+router.post('/', (req, res)=>{
+    inserir(req.body)
+        .then(res.status(200).json)
+        .catch(res.status(500).json)
+});
+
+
+export default router;

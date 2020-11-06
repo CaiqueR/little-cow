@@ -1,5 +1,6 @@
 import NeDB from 'nedb';
 
-let db = new NeDB({autoload: true, filename: './data.db'});
+const DATA_PATH = './data';
 
-export default db;
+export const Usuario =  new NeDB({autoload: true, filename: `'${DATA_PATH}/usuario.db'`});
+export const Vaquinha = new NeDB({autoload: true, filename: `'${DATA_PATH}/vaquinha.db'`});
