@@ -18,13 +18,15 @@ Usuario.ensureIndex({ fieldName: 'email', unique: true });
 function validar(u) {
     let erros = [];
 
+    
     // EXEMPLOS DE ERROS:
-    if(!u.nome) erros.push('nome não informado.');
-    if(!u.idade) erros.push('idade não informada.');
-    if(!u.email) erros.push('email não informado.');
+    if(!u) return {pass: false, erros: ['Usuário não informado']}
+    if(!u?.nome) erros.push('nome não informado.');
+    if(!u?.idade) erros.push('idade não informada.');
+    if(!u?.email) erros.push('email não informado.');
 
-    if (u.nome && u.nome.length < 2) erros.push('O nome deve ter pelo menos 2 caracteres');
-    if (u.idade && u.idade < 18) erros.push('O usuario deve ter pelo menos 18 anos');
+    if (u?.nome && u.nome.length < 2) erros.push('O nome deve ter pelo menos 2 caracteres');
+    if (u?.idade && u.idade < 18) erros.push('O usuario deve ter pelo menos 18 anos');
     // etc...
 
     return erros.length > 0 ? { pass: false, erros }
