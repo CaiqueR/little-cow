@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 
 import { Container } from "./styles";
 import logo from "../../assets/logofinal.png";
+import { useGeneral } from "../context/Provider";
 
 const Header: React.FC = () => {
+  const { user, setUser } = useGeneral();
   return (
     <Container>
       <img src={logo} alt="Little Cow Logo" />
@@ -16,24 +18,40 @@ const Header: React.FC = () => {
           </Link>
         </li>
         <li>
-          <Link className="hover-effect" to="/explore">
-            Explorar
+          <Link className="hover-effect" to="/quem-somos">
+            Quem somos
           </Link>
         </li>
         <li>
           <Link className="hover-effect" to="/pagines">
-            Páginas
+            Explorar
+          </Link>
+        </li>
+        {user.isLogged && (
+          <li>
+            <Link className="hover-effect" to="/vaquinhas">
+              Minhas vaquinhas
+            </Link>
+          </li>
+        )}
+        <li>
+          <Link to={user.isLogged ? "/nova-vaquinha" : "/register"}>
+            <button className="purple">Criar uma Vaquinha</button>
           </Link>
         </li>
         <li>
-          <Link to="/new-project">
-            <button className="purple">Iniciar um projeto</button>
-          </Link>
-        </li>
-        <li>
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
+          {!user.isLogged ? (
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+          ) : (
+            <button
+              className="red"
+              onClick={() => setUser({ isLogged: false })}
+            >
+              Sair
+            </button>
+          )}
         </li>
       </ul>
     </Container>

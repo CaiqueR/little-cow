@@ -35,7 +35,7 @@ export const Container = styled.div`
 
       padding: 1rem 4.5rem;
       outline: none;
-      border-radius: 0.4rem;
+      border-radius: 1rem;
       font-weight: 500;
 
       background-color: ${(props) => props.theme.colors.white};
@@ -59,7 +59,7 @@ export const Container = styled.div`
         &:hover {
           background-color: ${(props) => props.theme.colors.white};
           color: ${(props) => props.theme.colors.black};
-          border: 0.1rem solid ${(props) => props.theme.colors.white};
+          border: 0.1rem solid ${(props) => props.theme.colors.main};
         }
       }
     }

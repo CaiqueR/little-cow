@@ -4,27 +4,18 @@ import { ThemeProvider } from "styled-components";
 import Provider from "./components/context/Provider";
 import { Page } from "./components/Page/Page";
 import { GlobalStyles } from "./styles/GlobalStyles";
-
-const theme = {
-  colors: {
-    main: "#0a9e39",
-    secondary: "#383d92",
-    white: "#fff",
-    black: "#000",
-    grey: "#D8D8D8",
-  },
-};
+import lightTheme from "./styles/light";
 
 function App() {
   return (
-    <Provider>
-      <BrowserRouter>
-        <ThemeProvider theme={theme}>
+    <ThemeProvider theme={lightTheme}>
+      <Provider>
+        <BrowserRouter>
           <Page />
           <GlobalStyles />
-        </ThemeProvider>
-      </BrowserRouter>
-    </Provider>
+        </BrowserRouter>
+      </Provider>
+    </ThemeProvider>
   );
 }
 
