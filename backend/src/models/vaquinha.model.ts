@@ -86,6 +86,7 @@ export function inserir(vaquinha) {
 
 /** Contribui com uma vaquinha */
 export function contribuir(idVaq, contr) {
+  contr.valor *= 1;
   return new Promise((resolve, reject) => {
     if (contr.valor <= 0) return reject('O valor deve ser > 0');
     Usuario.findOne({ nome: contr.nomeContribuidor }, (err, user) => {
@@ -94,6 +95,8 @@ export function contribuir(idVaq, contr) {
         return reject('Você não tem saldo suficiente');
       Vaquinha.findOne({ _id: idVaq }, (err, vaq) => {
         if (err) return reject(err);
+        user.bitCows *= 1;
+        vaq.bitCows *= 1;
         user.bitCows -= contr.valor;
         //...
         if (!vaq.contribuidores[user.nome])

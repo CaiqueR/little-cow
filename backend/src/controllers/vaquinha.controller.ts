@@ -11,7 +11,6 @@
 import express from 'express';
 import {
   findVaquinhas,
-  getAll,
   inserir,
   remove,
   contribuir,
@@ -33,14 +32,6 @@ router.get('/', (req, res) => {
   findVaquinhas(query)
     .then(doc => res.status(200).json(doc))
     .catch(err => res.status(500).json(err));
-});
-
-router.get('/all', (req, res) => {
-  try {
-    res.status(200).json(getAll());
-  } catch (ex) {
-    res.status(500).json(ex);
-  }
 });
 
 router.post('/', (req, res) => {
