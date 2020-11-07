@@ -1,3 +1,5 @@
-{"nome":"joao","idade":25,"email":"joao@gmail.com","dataCadastro":{"$$date":1604673068258},"bitCows":0,"_id":"vLXZlKHqSDeE7Khg"}
+{"nome":"ana","dataNascimento":"ontem","email":"ana@gmail.com","dataCadastro":{"$$date":1604759384696},"bitCows":699,"_id":"CnJikAXXRjCxJuR7"}
+{"nome":"joao","dataNascimento":"ontem","email":"joao@gmail.com","dataCadastro":{"$$date":1604760846543},"bitCows":999,"_id":"pFc7iQVWVSauKjnD"}
 {"$$indexCreated":{"fieldName":"nome","unique":true,"sparse":false}}
 {"$$indexCreated":{"fieldName":"email","unique":true,"sparse":false}}
+{"nome":"lucas","dataNascimento":"1993-03-25","email":"lucas@gmail.com","dataCadastro":{"$$date":1604762373501},"bitCows":1000,"_id":"pT21KdSAmP4zbIwz"}

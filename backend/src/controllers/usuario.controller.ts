@@ -10,19 +10,29 @@
  */
 
 import express from 'express';
-import { findUsers, getAll, inserir } from '../models/usuario.model';
+import {
+  findUsers,
+  getAll,
+  inserir,
+  removeUser,
+} from '../models/usuario.model';
 
 const router = express.Router();
+
+router.all('/ping', (req, res) => {
+  res.status(200).json({
+    message: 'ok',
+    body: req.body,
+    header: req.headers,
+    query: req.query,
+  });
+});
 
 router.get('/', (req, res) => {
   let query = req.query;
   findUsers(query)
     .then(doc => res.status(200).json(doc))
     .catch(err => res.status(500).json(err));
-});
-
-router.get('/ping', (req, res) => {
-  res.status(200).json({ message: 'ok' });
 });
 
 router.get('/all', (req, res) => {
@@ -35,6 +45,12 @@ router.get('/all', (req, res) => {
 
 router.post('/', (req, res) => {
   inserir(req.body)
+    .then(doc => res.status(200).json(doc))
+    .catch(err => res.status(500).json(err));
+});
+
+router.delete('/:id', (req, res) => {
+  removeUser(req.params.id)
     .then(doc => res.status(200).json(doc))
     .catch(err => res.status(500).json(err));
 });
