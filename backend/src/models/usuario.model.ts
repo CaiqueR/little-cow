@@ -73,3 +73,13 @@ export function getAll(){
     return Usuario.getAllData();
 }
 
+/** Lista TODOS os usuarios */
+export function findUsers(query){
+    return new Promise((resolve, reject)=>{
+        Usuario.find(query, (err, docs)=>{
+            if(err) return reject(err);
+            return resolve(docs);
+        });
+    });
+}
+
