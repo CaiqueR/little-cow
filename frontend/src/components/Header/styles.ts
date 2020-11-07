@@ -8,6 +8,7 @@ export const Container = styled.header`
   justify-content: space-between;
   padding: 0 2rem;
   flex-wrap: wrap;
+  margin-bottom: 5px;
 
   .hover-effect {
     display: inline-block;
@@ -57,6 +58,10 @@ export const Container = styled.header`
     list-style: none;
     /* align-items: center; */
 
+    @media (max-width: 1070px) {
+      display: none;
+    }
+
     li {
       display: flex;
       align-items: center;
@@ -68,10 +73,11 @@ export const Container = styled.header`
       }
 
       a {
+        color: ${({ theme }) => theme.colors.black};
         text-decoration: none;
 
         &:visited {
-          color: black;
+          color: ${({ theme }) => theme.colors.black};
         }
       }
 
@@ -80,7 +86,7 @@ export const Container = styled.header`
 
         padding: 1rem 4.5rem;
         outline: none;
-        border-radius: 0.4rem;
+        border-radius: 1rem;
         font-weight: 500;
 
         background-color: ${(props) => props.theme.colors.white};
@@ -99,12 +105,28 @@ export const Container = styled.header`
           background-color: ${(props) => props.theme.colors.main};
           color: ${(props) => props.theme.colors.white};
 
-          box-shadow: 0px 0.7rem 1.5rem rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
 
           &:hover {
             background-color: ${(props) => props.theme.colors.white};
             color: ${(props) => props.theme.colors.black};
-            border: 0.1rem solid ${(props) => props.theme.colors.white};
+            border: 0.1rem solid ${(props) => props.theme.colors.main};
+          }
+        }
+
+        &.red {
+          background-color: ${(props) => props.theme.colors.red};
+          color: ${(props) => props.theme.colors.white};
+          border: 0.1rem solid ${(props) => props.theme.colors.red};
+
+          box-shadow: 0px 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+
+          &:hover {
+            box-shadow: none;
+
+            background-color: ${(props) => props.theme.colors.white};
+            color: ${(props) => props.theme.colors.black};
+            border: 0.1rem solid ${(props) => props.theme.colors.red};
           }
         }
       }

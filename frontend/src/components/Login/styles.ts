@@ -6,11 +6,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    20deg,
-    rgba(1, 110, 35, 1) 20%,
-    rgba(10, 158, 57, 1) 62%
-  );
+  background: url("login.jpg");
 `;
 
 export const ContainerLogin = styled.div`
@@ -49,13 +45,24 @@ export const ContainerLogin = styled.div`
     }
 
     button {
+      height: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin: 2rem 0;
+
+      &:disabled {
+        &:hover {
+          border: ${(props) => props.theme.colors.main};
+          background-color: ${(props) => props.theme.colors.main};
+        }
+      }
 
       font-size: 1.4rem;
 
       padding: 1rem 4.5rem;
       outline: none;
-      border-radius: 0.4rem;
+      border-radius: 1rem;
       font-weight: 500;
 
       background-color: ${(props) => props.theme.colors.main};
