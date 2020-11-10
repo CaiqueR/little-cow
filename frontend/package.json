@@ -2,33 +2,14 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.53",
-    "@types/react-dom": "^16.9.8",
-    "@unform/core": "^2.1.3",
-    "@unform/web": "^2.1.3",
-    "axios": "^0.21.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
-    "react-responsive-carousel": "^3.2.10",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.0",
-    "styled-components": "^5.2.0",
-    "swr": "^0.3.8",
-    "typescript": "^4.0.3",
-    "web-vitals": "^0.2.4"
-  },
+  "homepage": "https://caiquer.github.io/little-cow/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +32,29 @@
   "devDependencies": {
     "@types/react-helmet": "^6.1.0",
     "@types/react-router-dom": "^5.1.6",
-    "@types/styled-components": "^5.1.4"
+    "@types/styled-components": "^5.1.4",
+    "gh-pages": "^3.1.0",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "@unform/core": "^2.1.3",
+    "@unform/web": "^2.1.3",
+    "axios": "^0.21.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-responsive-carousel": "^3.2.10",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.0",
+    "styled-components": "^5.2.0",
+    "swr": "^0.3.8",
+    "web-vitals": "^0.2.4"
   }
 }
