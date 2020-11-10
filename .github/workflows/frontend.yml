@@ -15,6 +15,8 @@ jobs:
         with:
           node-version: 12.x
       - name: Install dependencies
-        run: cd frontend && npm install
+        run: npm install
+        working-directory: ./frontend
       - name: Deploy
         run: npm run deploy
+        working-directory: ./frontend
