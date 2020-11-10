@@ -1,0 +1,30 @@
+name: Deploy Frontend
+
+on:
+  push:
+    paths-ignore:
+      - backend/**
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v2
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install dependencies 🔧
+        run: yarn
+        working-directory: ./frontend
+      - name: Build 🚀
+        run: yarn build
+        working-directory: ./frontend
+      - name: Deploy 🛎️
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: ./frontend/build

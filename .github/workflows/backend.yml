@@ -1,0 +1,21 @@
+
+name: Deploy Backend
+
+on:
+  push:
+    paths-ignore:
+      - frontend/**
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: ssh-pipeline
+      uses: cross-the-world/ssh-pipeline@v1.2.0
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        user: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: ${{ secrets.SSH_SCRIPT }}

@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+ notes:
+   image: node:latest
+   container_name: little-cow
+   ports:
+     - 8080:8080
+   volumes:
+     - ./:/code
+   command: /bin/sh -c "cd /code && npm install && npm start"
