@@ -5,12 +5,14 @@ export const Container = styled.div`
   height: calc(100vh - 11vh);
   /* overflow: hidden; */
 
-  padding: 0 15%;
+  padding: 0 10%;
 
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 `;
+
+export const Content = styled.div``;
 
 export const ExploreVaquinha = styled.div`
   cursor: pointer;
@@ -45,13 +47,22 @@ export const ExploreVaquinha = styled.div`
   > div {
     margin: 5%;
     height: 43%;
-    /* background-color: #aaa; */
   }
 
-  > .footer {
+  > div .body {
+    width: 100%;
+    height: 75%;
+
+    overflow: hidden;
+  }
+
+  > div .footer {
     display: flex;
-    justify-content: space-between !important;
-    bottom: 10px;
-    background-color: #000;
+    justify-content: space-between;
+    bottom: 10px !important;
+  }
+
+  > div .bar {
+    bottom: 5px;
   }
 `;
