@@ -5,6 +5,7 @@ import Content from "../Content";
 import { useGeneral } from "../context/Provider";
 import DetalhesVaquinha from "../DetalhesVaquinha";
 import Explore from "../Explore";
+import Exploring from "../Exploring";
 import Header from "../Header";
 import Login from "../Login";
 import NovaVaquinha from "../NovaVaquinha";
@@ -27,6 +28,7 @@ export const Page: React.FC = () => {
         <ProtectedRoute path="/vaquinhas" component={Vaquinhas} />
         <ProtectedRoute path="/nova-vaquinha" component={NovaVaquinha} />
         <Route path="/vaquinha/:vaquinhaId" component={DetalhesVaquinha} />
+        <Route path="/explore" component={Exploring} />
       </Switch>
     </Container>
   );
