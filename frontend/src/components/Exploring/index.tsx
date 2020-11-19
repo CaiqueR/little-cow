@@ -1,42 +1,49 @@
 /* eslint arrow-body-style: ["error", "as-needed"] */
 
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
+import { Redirect, useHistory } from "react-router-dom";
 import CountUp from "react-countup";
 
 import { Line } from "rc-progress";
 
 import noImage from "../../assets/noimage.jpeg";
 import { useSWRCustom } from "../../service/api";
-import { Container, Content, ExploreVaquinha } from "./styles";
+import { Container, ExploreVaquinha } from "./styles";
 
-interface IExploreVaquinha {
-  id: string;
-  titulo: string;
-  descricaoCurta: string;
-  meta: number;
-  images: string;
-  bitCows: number;
-  encerrada: boolean;
-}
-
-const Exploring: React.FC<IExploreVaquinha> = ({
-  id,
-  titulo,
-  descricaoCurta,
-  meta,
-  images,
-  bitCows,
-  encerrada,
-}) => {
+const Exploring: React.FC = () => {
   const { data } = useSWRCustom("/vaquinha", { sort: "contribuicoes" });
+  const history = useHistory();
 
-  // useEffect(() => {}, [data]);
+  const calcPercent = (item) => (item.bitCows / item.meta) * 100;
+  // {
+  //   let ammount: number = 0;
+
+  //   Object.keys(item.contribuidores).forEach((u) => {
+  //     ammount += item.contribuidores[u];
+  //   });
+
+  //   console.log(
+  //     `ammount=${ammount}, meta=${item.meta}, percent=${
+  //       (ammount / item.meta) * 100
+  //     }`,
+  //   );
+  //   return (item.bitCows / item.meta) * 100;
+  // };
+
+  const handleClick = useCallback(
+    (vaquinhaId) => {
+      history.push(`/vaquinha/${vaquinhaId}`);
+    },
+    [history],
+  );
+
+  useEffect(() => {}, [data]);
 
   if (data) {
     return (
       <Container>
         {data.map((item) => (
-          <ExploreVaquinha key={item.id}>
+          <ExploreVaquinha key={item._id} onClick={() => handleClick(item._id)}>
             <img src={noImage} alt="No img" />
             <div className="content">
               <div className="body">
@@ -44,7 +51,7 @@ const Exploring: React.FC<IExploreVaquinha> = ({
                 <h3>{item.descricaoCurta}</h3>
               </div>
               <div className="footer">
-                <span>Meta </span>
+                <span>Meta</span>
                 <CountUp
                   end={item.meta}
                   prefix="R$ "
@@ -56,11 +63,14 @@ const Exploring: React.FC<IExploreVaquinha> = ({
               </div>
               <div className="bar">
                 <Line
-                  percent={50}
+                  percent={calcPercent(item)}
                   strokeWidth={1.5}
                   strokeColor="#2B9A48"
                   trailColor="#D8D8D8"
                 />
+                {/* <Redirect to={`./vaquinha/${item._id}`} /> */}
+                {/* <button type="button">Ver mais</button> */}
+                {/* <a href={`./vaquinha/${item._id}`}>Ver mais</a> */}
               </div>
             </div>
           </ExploreVaquinha>

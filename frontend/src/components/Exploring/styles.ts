@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* background-color: #808080; */
   height: calc(100vh - 11vh);
-  /* overflow: hidden; */
 
   padding: 0 10%;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 `;
 
@@ -63,6 +61,16 @@ export const ExploreVaquinha = styled.div`
   }
 
   > div .bar {
-    bottom: 5px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  > a {
+    background-color: #f00;
+    color: #f00;
+    text-decoration: none !important;
+    align-items: center;
   }
 `;
