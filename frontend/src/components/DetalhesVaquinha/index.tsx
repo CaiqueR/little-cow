@@ -33,6 +33,7 @@ const DetalhesVaquinha: React.FC = () => {
 
   const [vaquinha] = data;
 
+  revalidate();
   const handleContribute = useCallback(
     async (formData: FormData, close: Function) => {
       setIsLoading(true);
