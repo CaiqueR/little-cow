@@ -10,9 +10,12 @@ import { useSWRCustom } from "../../service/api";
 import { Container, ExploreVaquinha } from "./styles";
 
 const Exploring: React.FC = () => {
-  const { data } = useSWRCustom("/vaquinha", { sort: "contribuicoes" });
+  const { data, revalidate } = useSWRCustom("/vaquinha", {
+    sort: "contribuicoes",
+  });
   const history = useHistory();
 
+  revalidate();
   const calcPercent = (item) => (item.bitCows / item.meta) * 100;
   // {
   //   let ammount: number = 0;
