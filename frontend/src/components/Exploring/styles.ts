@@ -66,11 +66,4 @@ export const ExploreVaquinha = styled.div`
     flex-direction: column;
     align-items: center;
   }
-
-  > a {
-    background-color: #f00;
-    color: #f00;
-    text-decoration: none !important;
-    align-items: center;
-  }
 `;

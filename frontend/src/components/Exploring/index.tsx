@@ -1,10 +1,9 @@
 /* eslint arrow-body-style: ["error", "as-needed"] */
 
-import React, { useEffect, useCallback } from "react";
-import { Redirect, useHistory } from "react-router-dom";
-import CountUp from "react-countup";
-
 import { Line } from "rc-progress";
+import React, { useCallback, useEffect } from "react";
+import CountUp from "react-countup";
+import { useHistory } from "react-router-dom";
 
 import noImage from "../../assets/noimage.jpeg";
 import { useSWRCustom } from "../../service/api";
@@ -15,6 +14,7 @@ const Exploring: React.FC = () => {
   const history = useHistory();
 
   const calcPercent = (item) => (item.bitCows / item.meta) * 100;
+
   // {
   //   let ammount: number = 0;
 
