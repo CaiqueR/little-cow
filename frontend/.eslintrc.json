@@ -23,6 +23,9 @@
   "rules": {
     "quotes": [2, "double", { "avoidEscape": true }],
     "simple-import-sort/sort": "warn",
+    "eslint linebreak-style": [0, "error", "windows"],
+    "linebreak-style": 0,
+    "global-require": 0,
     "no-unused-vars": "warn",
     "sort-imports": "off",
     "import/order": "off",
