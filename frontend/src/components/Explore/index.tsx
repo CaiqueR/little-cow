@@ -8,6 +8,7 @@ const Explore: React.FC = () => (
     <h1>Quem somos</h1>
     <img src={maos} alt="Maos" />
     <p>
+      
       A Little Cow é uma associação cujo objetivo principal é estimular a
       solidariedade nos corações de nossos usuários. Por meio dessa plataforma,
       buscamos facilitar o processo de doações e ser uma ponte entre os que
