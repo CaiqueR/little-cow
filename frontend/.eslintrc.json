@@ -26,7 +26,7 @@
     "eslint linebreak-style": [0, "error", "windows"],
     "linebreak-style": 0,
     "global-require": 0,
-    "no-unused-vars": "warn",
+    "no-unused-vars": "error",
     "sort-imports": "off",
     "import/order": "off",
     "import/extensions": "off",
