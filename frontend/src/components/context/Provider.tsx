@@ -7,7 +7,7 @@ import usePersistedState from "../../hooks/usePersistedState";
 interface User {
   nome?: string;
   email?: string;
-  bitcows?: number;
+  bitCows?: number;
   dataCadastro?: string;
   isLogged?: boolean;
 }
@@ -22,7 +22,7 @@ const GeneralContext = createContext<GeneralContextType>({
   user: {
     nome: "",
     email: "",
-    bitcows: 0,
+    bitCows: 0,
     dataCadastro: "",
     isLogged: false,
   },
