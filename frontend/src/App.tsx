@@ -9,6 +9,7 @@ import { GlobalStyles } from "./styles/GlobalStyles";
 import lightTheme from "./styles/light";
 
 function App() {
+  const teste;
   useEffect(() => {
     Modal.setAppElement("#root");
   }, []);
