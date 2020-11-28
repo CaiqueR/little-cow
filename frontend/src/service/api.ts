@@ -2,7 +2,7 @@ import axios from "axios";
 import useSWR from "swr";
 
 const api = axios.create({
-  baseURL: "https://ubuntu-79bb94a9.localhost.run",
+  baseURL: "https://lbltavares-41531eab.localhost.run",
 });
 
 export default api;
