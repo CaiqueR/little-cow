@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 
 import noImage from "../../assets/noimage.jpeg";
 import { useSWRCustom } from "../../service/api";
+import Loading from "../Loading";
 import { Container, ExploreVaquinha } from "./styles";
 
 const Exploring: React.FC = () => {
@@ -39,48 +40,64 @@ const Exploring: React.FC = () => {
     [history],
   );
 
-  useEffect(() => {}, [data]);
+  useEffect(
+    () => () => {
+      revalidate();
+    },
+    [],
+  );
 
-  if (data) {
+  if (!data) {
     return (
-      <Container>
-        {data.map((item) => (
-          <ExploreVaquinha key={item._id} onClick={() => handleClick(item._id)}>
-            <img src={noImage} alt="No img" />
-            <div className="content">
-              <div className="body">
-                <h1>{item.titulo}</h1>
-                <h3>{item.descricaoCurta}</h3>
-              </div>
-              <div className="footer">
-                <span>Meta</span>
-                <CountUp
-                  end={item.meta}
-                  prefix="R$ "
-                  separator="."
-                  decimal=","
-                  decimals={2}
-                  duration={3}
-                />
-              </div>
-              <div className="bar">
-                <Line
-                  percent={calcPercent(item)}
-                  strokeWidth={1.5}
-                  strokeColor="#2B9A48"
-                  trailColor="#D8D8D8"
-                />
-                {/* <Redirect to={`./vaquinha/${item._id}`} /> */}
-                {/* <button type="button">Ver mais</button> */}
-                {/* <a href={`./vaquinha/${item._id}`}>Ver mais</a> */}
-              </div>
-            </div>
-          </ExploreVaquinha>
-        ))}
-      </Container>
+      <div
+        style={{
+          display: "flex",
+          marginTop: "2rem",
+          justifyContent: "center",
+        }}
+      >
+        <Loading border="4px" length="32px" color="main" />
+      </div>
     );
   }
-  return <Container />;
+
+  return (
+    <Container>
+      {data.map((item) => (
+        <ExploreVaquinha key={item._id} onClick={() => handleClick(item._id)}>
+          <img src={noImage} alt="No img" />
+          <div className="content">
+            <div className="body">
+              <h1>{item.titulo}</h1>
+              <h3>{item.descricaoCurta}</h3>
+            </div>
+            <div className="footer">
+              <span>Meta</span>
+              <CountUp
+                end={item.meta}
+                prefix="R$ "
+                separator="."
+                decimal=","
+                decimals={2}
+                duration={3}
+              />
+            </div>
+            <div className="bar">
+              <Line
+                percent={calcPercent(item)}
+                strokeWidth={1.5}
+                strokeColor="#2B9A48"
+                trailColor="#D8D8D8"
+              />
+              {/* <Redirect to={`./vaquinha/${item._id}`} /> */}
+              {/* <button type="button">Ver mais</button> */}
+              {/* <a href={`./vaquinha/${item._id}`}>Ver mais</a> */}
+            </div>
+          </div>
+        </ExploreVaquinha>
+      ))}
+    </Container>
+  );
 };
 
 export default Exploring;
