@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import logo from "../../assets/logofinal.png";
+import { useSWRCustom } from "../../service/api";
 import { useGeneral } from "../context/Provider";
 import { Container } from "./styles";
 
@@ -11,6 +12,10 @@ const Header: React.FC = () => {
   const location = useLocation();
   const [url, setUrl] = useState(globalThis.location.pathname);
   // const checkBox = useRef<HTMLInputElement>(null);
+
+  const { data } = useSWRCustom("/usuario", {
+    email: user.email,
+  });
 
   useEffect(() => {
     setUrl(location.pathname);
@@ -59,16 +64,19 @@ const Header: React.FC = () => {
           </Link>
         </li>
         {user.isLogged && (
-          <li>
-            <Link
-              className={`hover-effect ${
-                url.includes("/vaquinhas") ? "active" : ""
-              }`}
-              to="/vaquinhas"
-            >
-              Minhas vaquinhas
-            </Link>
-          </li>
+          <>
+            <li>
+              <Link
+                className={`hover-effect ${
+                  url.includes("/vaquinhas") ? "active" : ""
+                }`}
+                to="/vaquinhas"
+              >
+                Minhas vaquinhas
+              </Link>
+            </li>
+            <li>Bitcows: {data ? data[0].bitCows : ""}</li>
+          </>
         )}
         <li>
           <Link to={user.isLogged ? "/nova-vaquinha" : "/register"}>

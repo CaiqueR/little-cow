@@ -31,6 +31,10 @@ const DetalhesVaquinha: React.FC = () => {
     _id: vaquinhaId,
   });
 
+  const { revalidate: revalidateUser } = useSWRCustom("/usuario", {
+    email: user.email,
+  });
+
   const [vaquinha] = data;
 
   revalidate();
@@ -45,6 +49,7 @@ const DetalhesVaquinha: React.FC = () => {
         });
 
         revalidate();
+        revalidateUser();
         close();
       } catch (e) {
         setError(e.response.data);
