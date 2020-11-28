@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import noImage from "../../assets/noimage.jpeg";
@@ -10,13 +10,22 @@ import { Container, Vaquinha } from "./styles";
 const Vaquinhas: React.FC = () => {
   const history = useHistory();
   const { user } = useGeneral();
-  const { data } = useSWRCustom("/vaquinha", { autor: user.nome });
+  const { data, revalidate } = useSWRCustom("/vaquinha", { autor: user.nome });
 
   const handleClick = useCallback(
     (vaquinhaId) => {
       history.push(`/vaquinha/${vaquinhaId}`);
     },
     [history],
+  );
+
+  revalidate();
+
+  useEffect(
+    () => () => {
+      revalidate();
+    },
+    [],
   );
 
   if (!data) {
